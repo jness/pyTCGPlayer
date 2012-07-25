@@ -60,9 +60,9 @@ class Card:
             cost = tds[1].text
             set = tds[2].text.replace('&nbsp;', '')
             rarity = tds[3].text
-            low = tds[4].text.lstrip('$')
+            high = tds[4].text.lstrip('$')
             avg = tds[5].text.lstrip('$')
-            high = tds[6].text.lstrip('$')
+            low = tds[6].text.lstrip('$')
             
             if rarity != 'L': # skip basic lands
                 self.cards[card_name] = (dict(card_name=card_name, cost=cost,
