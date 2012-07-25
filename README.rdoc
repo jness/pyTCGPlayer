@@ -1,0 +1,32 @@
+== Description
+
+A tool for getting MTG Sets and Cards from TCGPlayer
+
+== Getting Sets from TCGPlayer
+
+    >>> from TCGPlayer.Magic import Set
+    >>> 
+    >>> s = Set()
+    >>> s.getSets()
+    {'Duel Decks: Knights vs Dragons': 'Knights vs Dragons', 'Morningtide':
+    'Morningtide', 'Darksteel': 'Darksteel', 'Duel Decks: Phyrexia vs. The Coalition':
+    'Phyrexia vs. The Coalition', 'Planar Chaos': 'Planar Chaos', 'Prerelease Cards':
+    'Prerelease Cards', 'Magic Player Rewards': 'Magic Player Rewards',
+    ....
+
+== Getting Cards from TCGPlayer
+
+    >>> from TCGPlayer.Magic import Card
+    >>> set = s.getSets()['Magic 2013 (M13)']
+    >>> set
+    'Magic 2013 (M13)'
+    
+    >>> c = Card(set=set)
+    >>> c.getCards()
+    {u'Duty-Bound Dead': {'high': u'$0.03', 'card_name': u'Duty-Bound Dead', 'set': u'Magic 2013 (M13)', 'cost': u'B', 'low': u'$0.49', 'avg': u'$0.12', 'rarity': u'C'},
+    u'Silklash Spider': {'high': u'$0.10', 'card_name': u'Silklash Spider', 'set': u'Magic 2013 (M13)', 'cost': u'3GG', 'low': u'$1.53', 'avg': u'$0.57', 'rarity': u'R'}, i
+    u'Elixir of Immortality': {'high': u'$0.06', 'card_name': u'Elixir of Immortality', 'set': u'Magic 2013 (M13)', 'cost': u'1', 'low': u'$1.24', 'avg': u'$0.29', 'rarity': u'U'}, i
+    ....
+    
+    >>> c.getCard('Staff of Nin')
+    {'high': u'$0.15', 'card_name': u'Staff of Nin', 'set': u'Magic 2013 (M13)', 'cost': u'6', 'low': u'$1.50', 'avg': u'$0.56', 'rarity': u'R'}
