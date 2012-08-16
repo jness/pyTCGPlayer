@@ -60,9 +60,18 @@ class Card:
             cost = tds[1].text
             set = tds[2].text.replace('&nbsp;', '')
             rarity = tds[3].text
+
             high = tds[4].text.lstrip('$')
             avg = tds[5].text.lstrip('$')
             low = tds[6].text.lstrip('$')
+
+            # TCGPlayer sometimes has N/A prices, lets set those to 0.00
+            if high == 'N/A':
+                high = '0.00'
+            if avg == 'N/A':
+                avg = '0.00'
+            if low == 'N/A':
+                low = '0.00'
             
             if rarity != 'L': # skip basic lands
                 self.cards[card_name] = (dict(card_name=card_name, cost=cost,
